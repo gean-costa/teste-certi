@@ -30,5 +30,6 @@ def numero_extenso(num):
 
     if len(extenso) == 1 and extenso[0] == "cento":
         extenso[0] = "cem"
+        
 
     return " e ".join(extenso)
