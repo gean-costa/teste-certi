@@ -9,12 +9,16 @@ def app():
     return app
 
 def test_acessar_home_status_code_200(client):
-    response = client.get("/")
+    response = client.get("/home")
     assert response.status_code == 200
 
 def test_acessar_home_mensagem(client):
-    response = client.get("/")
+    response = client.get("/home")
     assert response.get_data(as_text=True) == "Olá, seja bem-vindo"
+
+def test_numero_0(client):
+    response = client.get("/0")
+    assert response.get_json() == {"extenso": "zero"}
 
 def test_numero_1(client):
     response = client.get("/1")
