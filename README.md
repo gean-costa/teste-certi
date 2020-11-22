@@ -45,6 +45,7 @@ Esta foi desenvolvida na liguagem Python (versão 3.8.5) por meio do microframew
 │   ├── scanapi.yaml
 ├── scanapi.conf
 ├── templates
+│   ├── home.html
 │   └── tests-report.html
 └── tests
     ├── __init__.py
@@ -67,9 +68,13 @@ Para rodar a aplicação na sua máquina, recomendamos a criação de um ambient
 ```
 Com isso, a aplicação será executada no endereço http://localhost:3000/ e, caso queira mudar o endereço do host e da porta utilizada, basta informar no momento da execução, mudando os parâmetros acima conforme desejar.
 
-Entretanto, se você possuir o Docker instalado, é possível também rodar a aplicação por meio de um container, cuja imagem está disponível [aqui](). Após o download, execute em seu terminal:
+Entretanto, se você possuir o Docker instalado, é possível também rodar a aplicação por meio de um container, cuja imagem está disponível [aqui](https://1drv.ms/u/s!AvJOqPBwEyZ-ircuBXbVdjMJmlRLPA?e=lEXv3F). Após o download, execute os seguintes comandos em seu terminal:
 ```bash
->
+# carregar imagem para o docker
+>  gunzip -c container.teste_certi.tar.gz | docker load
+
+# executar o container pela primeira vez
+> docker run -d --name=teste_certi_container --publish 3000:3000 teste-certi_web
 ```
 
 Caso opte por não fazer o download da imagem, você pode rodar a aplicação criando o container com o seguinte comando:
@@ -82,7 +87,7 @@ No caso da aplicação ser executada no Docker, o endereço será http://0.0.0.0
 
 | endpoint | descrição |
 |----------|-----------|
-|/home| Apresentação e informações gerais/documentação da aplicação. |
+|/ ou /home| Apresentação e informações gerais/documentação da aplicação. |
 |/extenso/{num}| Gera a versão por extenso do paramêtro **{num}**. Por definição, **{num}** deve ser um número inteiro entre [-9999,99999]. Caso não seja, será retornada uma mensagem de erro. |
 |/scanapi| Apresentação do report gerado pela execução dos testes usando a ferramenta ScanAPI (mais informações sobre a mesma a seguir).|
 
