@@ -1,6 +1,6 @@
 endpoints:
   - name: CERTI-teste
-    path: http://localhost:3000
+    path: http://0.0.0.0:3000
     requests:
       - name: home
         path: /home
@@ -10,77 +10,77 @@ endpoints:
             assert: ${{ response.status_code == 200}}
 
       - name: zero
-        path: /0
+        path: /extenso/0
         method: get
         tests:
           - name: numero_zero
             assert: ${{ response.json()["extenso"] == "zero" }}
 
       - name: um
-        path: /1
+        path: /extenso/1
         method: get
         tests:
           - name: numero_um
             assert: ${{ response.json()["extenso"] == "um" }}
 
       - name: menos um
-        path: /-1
+        path: /extenso/-1
         method: get
         tests:
           - name: numero_menos_um
             assert: ${{ response.json()["extenso"] == "menos um" }}
 
       - name: cem
-        path: /100
+        path: /extenso/100
         method: get
         tests:
           - name: numero_cem
             assert: ${{ response.json()["extenso"] == "cem" }}
 
       - name: menos cem
-        path: /-100
+        path: /extenso/-100
         method: get
         tests:
           - name: numero_menos_cem
             assert: ${{ response.json()["extenso"] == "menos cem" }}
 
       - name: mil
-        path: /1000
+        path: /extenso/1000
         method: get
         tests:
           - name: numero_mil
             assert: ${{ response.json()["extenso"] == "mil" }}
 
       - name: menos mil
-        path: /-1000
+        path: /extenso/-1000
         method: get
         tests:
           - name: numero_menos_mil
             assert: ${{ response.json()["extenso"] == "menos mil" }}
 
       - name: dez mil
-        path: /10000
+        path: /extenso/10000
         method: get
         tests:
           - name: numero_dez_mil
             assert: ${{ response.json()["extenso"] == "dez mil" }}
 
       - name: menos dez mil
-        path: /-10000
+        path: /extenso/-10000
         method: get
         tests:
           - name: numero_menos_dez_mil
             assert: ${{ response.json()["extenso"] == "menos dez mil" }}
 
       - name: noventa e nove mil novecentos e noventa e nove
-        path: /99999
+        path: /extenso/99999
         method: get
         tests:
           - name: numero_noventa_e_nove_mil_novecentos_e_noventa_e_nove
             assert: ${{ response.json()["extenso"] == "noventa e nove mil e novecentos e noventa e nove" }}
 
       - name: menos dez mil
-        path: /-99999
+        path: /extenso/-99999
         method: get
         tests:
           - name: numero_menos_noventa_e_nove_mil_novecentos_e_noventa_e_nove
